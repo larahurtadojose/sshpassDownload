@@ -1,0 +1,17 @@
+#Tasks
+- name: deleting previous file
+  file: path="{{ v_localPath }}/{{ download_this_file }}" state=absent
+
+- name: download zip file "{{ download_this_file }}"
+  script: downloadSftp.sh "{{ v_usr }}" "{{ v_pass }}" "{{ v_server }}" "{{ v_remotePath }}" "{{ v_localPath }}" "{{ download_this_file }}"
+    
+- name: checking if "{{ download_this_file }}" exists
+  stat:
+    path: "{{ v_localPath }}/{{ download_this_file }}"
+  register: resultado
+
+- debug: msg="yes, file downloaded OK."
+  when: resultado.stat.exists == True
+
+- debug: msg="error, error, the file is not in the place it should be."
+  when: resultado.stat.exists == False
