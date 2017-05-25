@@ -1,4 +1,4 @@
-# sshpassDownload
+# sshpassDownload (sshpass Required)
 Download a file using sshpass from a sftp server to local.
 
 # Playbook example
