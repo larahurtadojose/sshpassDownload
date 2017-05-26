@@ -1,1 +1,3 @@
-download_this_file: file_to_download.zip
+---
+# vars file for sshpassDownload
+download_this_file: BBDDTC_V02R00F01.zip

@@ -1,6 +1,9 @@
 #!/bin/bash
-
-#Este es el entorno de los liberados.
+#
+# This script require sshpass and sftp installed and configured first
+#
+# Author: Miguel Soranno.
+#
 
 usr="$1"
 pass="$2"

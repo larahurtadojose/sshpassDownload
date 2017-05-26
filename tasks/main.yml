@@ -1,6 +1,10 @@
-#Tasks
+---
+# tasks file for sshpassDownload
+
 - name: deleting previous file
-  file: path="{{ v_localPath }}/{{ download_this_file }}" state=absent
+  file: 
+    path: "{{ v_localPath }}/{{ download_this_file }}" 
+    state: absent
 
 - name: download zip file "{{ download_this_file }}"
   script: downloadSftp.sh "{{ v_usr }}" "{{ v_pass }}" "{{ v_server }}" "{{ v_remotePath }}" "{{ v_localPath }}" "{{ download_this_file }}"
