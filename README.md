@@ -11,15 +11,15 @@ sshpass and sftp are required.
 Role Variables
 --------------
 
-vars/main.yml
-download_this_file: file_to_download.zip
+	vars/main.yml
+	download_this_file: file_to_download.zip
 
-Vars in playbook passed from the role definition
-v_usr: user
-v_pass: password 
-v_server: server
-v_remotePath: /path1/path2/
-v_localPath: /path1/path2/path3
+	Vars in playbook passed from the role definition
+	v_usr: user
+	v_pass: password 
+	v_server: server
+	v_remotePath: /path1/path2/
+	v_localPath: /path1/path2/path3
 
 Dependencies
 ------------
