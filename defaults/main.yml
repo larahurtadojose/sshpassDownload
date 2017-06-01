@@ -1,2 +1,4 @@
 ---
 # defaults file for sshpassDownload
+rutaRemotaSftp: /bksCCD/ADH_4_2_4/PREREQUISITOS/
+rutaLocalDescarga: /home/msoranno/Playbooks/tmp
