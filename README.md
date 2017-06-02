@@ -11,15 +11,18 @@ sshpass and sftp are required.
 Role Variables
 --------------
 
-	vars/main.yml
-	download_this_file: file_to_download.zip
+        defaults/main.yml        
+        rutaRemotaSftp: /bksCCD/ADH_4_2_4/PREREQUISITOS/
+        rutaLocalDescarga: /tmp
 
-	Vars in playbook passed from the role definition
-	v_usr: user
-	v_pass: password 
-	v_server: server
-	v_remotePath: /path1/path2/
-	v_localPath: /path1/path2/path3
+        Vars in Playbook passed from the role definition:
+        v_usr: "{{ V_USR }}"
+        v_pass: "{{ V_PASS }}"
+        v_server: "{{ V_SERVER }}"
+        download_this_file: "{{ V_F }}"
+        v_remotePath: "{{ rutaRemotaSftp }}"
+        v_localPath: "{{ rutaLocalDescarga }}"
+
 
 Dependencies
 ------------
@@ -36,13 +39,16 @@ Example Playbook
 	  become: true
 	  connection: local
 
-	  roles:
-	    - role: sshpassDownload
-	      v_usr: user
-	      v_pass: password 
-	      v_server: server
-	      v_remotePath: /path1/path2/
-	      v_localPath: /path1/path2/path3
+        - role: sshpassDownload
+          v_usr: "{{ V_USR }}"
+          v_pass: "{{ V_PASS }}"
+          v_server: "{{ V_SERVER }}"
+          download_this_file: "{{ V_F }}"
+          v_remotePath: "{{ rutaRemotaSftp }}"
+          v_localPath: "{{ rutaLocalDescarga }}"
+
+
+ansible-playbook --extra-vars '{"V_USR":"myuser", "V_PASS":"mypass", "V_SERVER":"myserver" , "V_F":"myfile"}' --tags "playme" playbook.yml
 
 License
 -------
