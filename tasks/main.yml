@@ -5,17 +5,27 @@
   file: 
     path: "{{ v_localPath }}/{{ download_this_file }}" 
     state: absent
+  tags:
+    - playme
 
 - name: download zip file "{{ download_this_file }}"
   script: downloadSftp.sh "{{ v_usr }}" "{{ v_pass }}" "{{ v_server }}" "{{ v_remotePath }}" "{{ v_localPath }}" "{{ download_this_file }}"
+  tags:
+    - playme
     
 - name: checking if "{{ download_this_file }}" exists
   stat:
     path: "{{ v_localPath }}/{{ download_this_file }}"
   register: resultado
+  tags:
+    - playme
 
 - debug: msg="yes, file downloaded OK."
   when: resultado.stat.exists == True
+  tags:
+    - playme
 
 - debug: msg="error, error, the file is not in the place it should be."
-  when: resultado.stat.exists == False
+  when: resultado.stat.exists == False or resultado.stat.exists is not defined
+  tags:
+    - playme
