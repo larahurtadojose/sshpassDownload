@@ -3,24 +3,24 @@
 
 - name: deleting previous file
   file: 
-    path: "{{ v_localPath }}/{{ download_this_file }}" 
+    path: "{{ v_localPath }}/{{ upload_this_file }}" 
     state: absent
   tags:
     - playme
 
-- name: download zip file "{{ download_this_file }}"
-  script: downloadSftp.sh "{{ v_usr }}" "{{ v_pass }}" "{{ v_server }}" "{{ v_remotePath }}" "{{ v_localPath }}" "{{ download_this_file }}"
+- name: upload zip file "{{ upload_this_file }}"
+  script: uploadSftp.sh "{{ v_usr }}" "{{ v_pass }}" "{{ v_server }}" "{{ v_remotePath }}" "{{ v_localPath }}" "{{ upload_this_file }}"
   tags:
     - playme
     
-- name: checking if "{{ download_this_file }}" exists
+- name: checking if "{{ upload_this_file }}" exists
   stat:
-    path: "{{ v_localPath }}/{{ download_this_file }}"
+    path: "{{ v_localPath }}/{{ upload_this_file }}"
   register: resultado
   tags:
     - playme
 
-- debug: msg="yes, file downloaded OK."
+- debug: msg="yes, file uploaded OK."
   when: resultado.stat.exists == True
   tags:
     - playme
