@@ -3,7 +3,7 @@
 
 - name: deleting previous file
   file: 
-    path: "{{ v_localPath }}/{{ upload_this_file }}" 
+    path: "{{ v_remotePath }}/{{ upload_this_file }}" 
     state: absent
   tags:
     - playme
