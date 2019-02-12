@@ -19,7 +19,7 @@ Role Variables
         v_usr: "{{ V_USR }}"
         v_pass: "{{ V_PASS }}"
         v_server: "{{ V_SERVER }}"
-        download_this_file: "{{ V_F }}"
+        upload_this_file: "{{ V_F }}"
         v_remotePath: "{{ rutaRemotaSftp }}"
         v_localPath: "{{ rutaLocalDescarga }}"
 
@@ -33,17 +33,17 @@ Example Playbook
 ----------------
 
 	--- 
-	- name: DOWNLOAD PROCESS
+	- name: UPLOAD PROCESS
 	  hosts: local
 	  user: ansible
 	  become: true
 	  connection: local
 
-        - role: sshpassDownload
+        - role: sshpassupload
           v_usr: "{{ V_USR }}"
           v_pass: "{{ V_PASS }}"
           v_server: "{{ V_SERVER }}"
-          download_this_file: "{{ V_F }}"
+          upload_this_file: "{{ V_F }}"
           v_remotePath: "{{ rutaRemotaSftp }}"
           v_localPath: "{{ rutaLocalDescarga }}"
 
@@ -57,5 +57,5 @@ MIT
 
 Author Information
 ------------------
-
+JL
 Miguel Soranno
