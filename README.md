@@ -57,5 +57,5 @@ MIT
 
 Author Information
 ------------------
-JL
+JL,
 Miguel Soranno
