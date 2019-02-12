@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Ansible role for Download a file using sshpass from a sftp server. Please review the tasks/main.yml first.
+Ansible role for Upload a file using sshpass from a sftp server. Please review the tasks/main.yml first.
 
 Requirements
 ------------
