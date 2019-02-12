@@ -16,4 +16,3 @@ cd $4
 put $componente
 bye
 !
-mv $componente $5
