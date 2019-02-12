@@ -1,12 +1,5 @@
 ---
-# tasks file for sshpassDownload
-
-- name: deleting previous file
-  file: 
-    path: "{{ v_remotePath }}/{{ upload_this_file }}" 
-    state: absent
-  tags:
-    - playme
+# tasks file for sshpassUpload
 
 - name: upload zip file "{{ upload_this_file }}"
   script: uploadSftp.sh "{{ v_usr }}" "{{ v_pass }}" "{{ v_server }}" "{{ v_remotePath }}" "{{ v_localPath }}" "{{ upload_this_file }}"
